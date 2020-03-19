@@ -1,11 +1,326 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+  <!-- base href="/caierp" -->
   <meta charset="UTF-8">
+  <!-- <meta http-equiv="refresh" content="0; URL='https://'"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RAPADUTACHO</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <title>CAI-ERP</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
+  
+  <!--https://www.w3schools.com/colors/colors_picker.asp-->
+  
+  <style>
+    html {
+      height: calc(100% - 1px);
+      margin: 1px;
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+    }
+
+    body, 
+    div.app {
+      height: inherit;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+    }
+
+    div.app {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #efd;
+      display: grid;
+      grid-template-rows: 4em 2.6em auto 3em;
+    }
+    
+    header.app {
+      margin: 0;
+      padding: .25em;
+      background-color: #6df;
+    }
+
+    footer.app {
+      margin: 0;
+      padding: .25em;
+      background-color: #caf;
+    }
+
+    nav.app {
+      margin: 0;
+      padding: 0;
+      background-color: #6fb;
+    }
+    
+    nav.app > ul {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      position: relative;
+      float: left;
+    }
+    
+    nav.app ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    nav.app ul ul {
+      display: grid;
+      visibility: hidden;
+      position: absolute;
+      z-index: 99999;
+      transition: opacity .2s linear, visibility .2s linear;
+      box-shadow: 1px 1px 3px #ccc;
+      width: 20em;
+      top: 2em;
+      left: .2em;
+    }
+    
+    nav.app ul ul ul {
+      top: 0;
+      left: 10.1em;
+    }
+
+    nav.app li {
+      padding: 0;
+      display: inline;
+      float: left;
+      position: relative;
+    }
+
+    /*nav.app li label {*/
+    nav.app li a {
+      height: 100%;
+      margin: .2em 0 .2em .4em;
+      padding: .5em .4em;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    /*nav.app li label:hover {*/
+    nav.app li a:hover {
+      color: #ff0;
+      border-radius: 2px;
+      background-color: #537;
+    }
+    
+    nav.app li li {
+      height: 2em;
+      clear: both;
+      width: 100%;
+      box-sizing: border-box; 
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      background-color: #fff;
+    }
+    
+    /*nav.app li li label {*/
+    nav.app li li a {
+      width: 100%;
+    }
+
+    nav.app li li:first-child {
+      border-top: 1px solid #ccc;
+    }
+
+    nav.app li li:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+
+    nav.app li:hover > ul {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    main {
+      padding: 0;
+      margin: .25em;
+      display: grid;
+      grid-template-rows: 4em auto 1.6em;
+      overflow-y: scroll;
+      scrollbar-width: thin;
+    }
+    
+    header.main {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /*height: 2em;*/
+      /*background-color: #6ff;*/
+      border-bottom: 1px solid #ccc;
+    }
+    
+    ul.main {
+      list-style-type: none;
+    }
+
+    section.main,
+    ul.main {
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      /*height: auto;*/
+      /*background-color: #f6f;*/
+    }
+
+    footer.main {
+      border-top: 1px solid #ccc;
+      /*height: 2em;*/
+      /*background-color: #ff6;*/
+    }
+    
+    div.main .modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .5s, .5s ease-in-out;
+    }
+    
+    div.main input[type="checkbox"] {
+      position: fixed;
+      left: -9999px;
+      top: 50%;
+      opacity: 0;
+    }
+    
+    div.main input[type="checkbox"]:checked + .modal {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+    
+    div.main input[type="checkbox"]:checked + .modal .modal-content {
+      opacity: 1;
+      transform: translate(-50%, 0);
+      transition-delay: 0.5s;
+    }    
+    
+    .modal-content {
+      padding: 10px;
+      max-width: 800px;
+      min-width: 360px;
+      max-height: 85%;
+      overflow: auto;
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      z-index: 2;
+      opacity: 0;
+      border-radius: 3px;
+      background: #fff;
+      /*-webkit-transform: translate(-50%, 0);*/
+      /*-ms-transform: translate(-50%, 0);*/
+      transform: translate(-50%, 0);
+      /*-webkit-transition: all 0.5s ease-in-out;*/
+      transition: all 0.5s ease-in-out;
+    }
+    
+    .modal-content > footer {
+      display: flex;
+      margin: .2em 0;
+      
+    }
+    
+    .modal-content > footer .pure-button {
+      margin: 0 .2em;
+    }
+    
+    /* dicas: 
+      https://tableless.com.br/dicas-de-css-para-impressao/ 
+      https://developer.mozilla.org/pt-BR/docs/Web/Guide/CSS/CSS_Media_queries
+      Segredos do media print - https://medium.com/@larymagal/segredos-do-media-print-dcd69cef1f56
+      Designing For Print With CSS - https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
+    */
+    @media print {
+      
+      * {
+       background: transparent !important;
+       color: #000 !important;
+       text-shadow: none !important;
+       filter: none !important;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        line-height:1.4em;
+        font: 12pt Georgia, "Times New Roman", Times, serif;
+      }
+      
+      h1 { font-size: 24pt }
+      h2 { 
+        font-size: 18pt;
+        page-break-after: avoid;
+      }
+      h3 { font-size: 14pt }
+      
+      .print { display: block }
+      
+      q:after { content: " (" attr(cite) ") " }
+      a, a:visited { text-decoration: underline }
+      a:link:after, a:visited:after { content: " (" attr(href) ") " }
+      /*a:after, a[href^="javascript"]:after, a[href^="#"]:after { content: "" };*/
+      p a { word-wrap: break-word }
+      p { 
+        widows: 3;
+        orphans: 3;
+      } 
+      
+      .page-break { page-break-before: always }
+      
+      nav,
+      footer,
+      video,
+      audio,
+      object,
+      embed,
+      .no-print {
+        display: none;
+      }
+      
+      img { max-width: 100% }      
+      
+      @page {
+        margin: 1cm;
+        size: A4;
+      }
+    
+    }
+    
+    .print {
+      display: none;
+    }
+    
+    .no-print {
+      display: block;
+    }
+
+  </style>
 </head>
-<body >
-  <h1 style="text-align:center">RAPADUTACHO.</h1>
+
+<body>
+  <app>Loading...</app>
+
+  <script type="systemjs-packagemap" src="app/packagemap.json"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@2/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@2/dist/extras/amd.min.js"></script>
+  <script>
+    window.onload = () => /*global System*/ System.import('boot');
+  </script>
+
 </body>
+
 </html>
+
