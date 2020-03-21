@@ -10,7 +10,11 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
 
   const
     renderImage = h => h('img', {
-      style: 'margin-left: auto; margin-right: auto; max-width: 25%',
+      style: {
+        'margin-left': 'auto',
+        'margin-right': 'auto',
+        'max-width': `${window.innerWidth < 721 ? 25 : 18 }%`
+      },
       attrs: {
         src: 'rapadutacho.png',
         alt: 'logomarca'
@@ -111,12 +115,14 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
         { style: 
           {
             display: 'grid',
-            'font-size': `${window.innerWidth < 721 ? '3' : '6' }rem`
+            'font-size': `${window.innerWidth < 721 ? '3' : '4' }rem`,
+            'padding-top': `${window.innerWidth < 721 ? '3' : '2' }rem`
           }
         }, 
         renderFigure(h), 
         renderContacts(h))
     });
 
+console.log(window.innerWidth);    
   new Vue({ render }).$mount('app');
 });
