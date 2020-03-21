@@ -82,7 +82,7 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
 
       const styleContact = {
         display: 'grid',
-        'font-size': '.5em',
+        'font-size': '.4em',
         'row-gap': '1em',
         'text-align': 'center',
         'margin-left': '1em',
@@ -91,7 +91,15 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
       
       return h(
         'div',
-        { style: 'display: grid; grid-template-columns: 1fr 1fr; margin-top: 3em; margin-left: 1em; margin-right: 1em' },
+        { 
+          style: {
+            display: 'grid',
+            'grid-template-columns': '1fr 1fr',
+            'margin-top': '1em',
+            'margin-left': '1em',
+            'margin-right': '1em' 
+          }
+        },
         renderInstagram(h, styleContact),
         renderWhatsapp(h, styleContact)
       );
@@ -103,7 +111,7 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
         { style: 
           {
             display: 'grid',
-            'font-size': `${window.innerWidth < 721 ? 3 : 6 }rem`
+            'font-size': `${window.innerWidth < 721 ? '3' : '6' }rem`
           }
         }, 
         renderFigure(h), 
