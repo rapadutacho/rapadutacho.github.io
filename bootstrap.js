@@ -58,20 +58,23 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
 
     renderContactCaption = (h, ...a) => h(
       'figcaption', 
-      { style: 'font-family: \'Be Vietnam\', sans-serif'},
-      ...a),
+      { style: 'font-family: \'Be Vietnam\', sans-serif; text-align: center'},
+      ...a.map(p => h('p', p))
+    ),
 
     renderInstagram = (h, style) => h(
       'figure',
       { style },
-      renderContactCaption(h, 'Nos siga nas', h('br'), 'redes sociais', h('br')),
+      // renderContactCaption(h, 'Nos siga nas', 'redes sociais'),
+      renderContactCaption(h, 'Nos siga nas redes sociais'),
       renderContactImage(h, 'instagram.png', 'https://instagram.com/rapadutacho?igshid=1wi23ynuej5gt')
     ),
 
     renderWhatsapp = (h, style) => h(
       'figure',
       { style },
-      renderContactCaption(h, 'Faça seu pedido', h('br'), 'através do nosso', h('br'), 'whatsapp'),
+      // renderContactCaption(h, 'Faça seu pedido', 'através do nosso', 'whatsapp'),
+      renderContactCaption(h, 'Faça seu pedido através do nosso whatsapp'),
       renderContactImage(h, 'whatsapp.png', 'https://api.whatsapp.com/send?phone=5562985033913')
     ),
 
@@ -79,15 +82,16 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
 
       const styleContact = {
         display: 'grid',
-        'font-size': '.4em',
+        'font-size': '.5em',
         'row-gap': '2em',
-        'margin-left': 'auto',
-        'margin-right': 'auto'
+        'text-align': 'center',
+        'margin-left': '1em',
+        'margin-right': '1em'
       };
       
       return h(
         'div',
-        { style: 'display: grid; grid-template-columns: 1fr 1fr; margin-top: 3em' },
+        { style: 'display: grid; grid-template-columns: 1fr 1fr; margin-top: 3em; margin-left: 1em; margin-right: 1em' },
         renderInstagram(h, styleContact),
         renderWhatsapp(h, styleContact)
       );
