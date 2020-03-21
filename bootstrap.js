@@ -23,7 +23,7 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
 
     renderCaption = h => h(
       'figcaption',
-      { style: 'display: grid; text-align: center' },
+      { style: 'display: grid; text-align: center; letter-spacing: .1em' },
       renderParagraph(h, {}, 'RAPA DU'),
       renderParagraph(h,
         {
