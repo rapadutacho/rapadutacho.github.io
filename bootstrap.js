@@ -83,7 +83,7 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
       const styleContact = {
         display: 'grid',
         'font-size': '.5em',
-        'row-gap': '2em',
+        'row-gap': '1em',
         'text-align': 'center',
         'margin-left': '1em',
         'margin-right': '1em'
@@ -100,7 +100,12 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
     render = H(function (h) {
       return h(
         'main', 
-        { style: `display: grid; font-size: ${window.innerWidth < 721 ? 3 : 6 }rem` }, 
+        { style: 
+          {
+            display: 'grid',
+            'font-size': `${window.innerWidth < 721 ? 3 : 6 }rem`
+          }
+        }, 
         renderFigure(h), 
         renderContacts(h))
     });
