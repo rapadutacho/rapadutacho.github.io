@@ -30,95 +30,59 @@
       src: url("Pangram-Black.otf");
     }
 
+    .rapadutacho-figure {
+      display: grid;
+    }
+
+    .rapadutacho-figure img {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 25%;
+    }
+
+    .rapadutacho-figure figcaption {
+      display: grid;
+      text-align: center;
+    }
+
+    .rapadutacho-figure figcaption p {
+      font-family: 'Pangram black', sans-serif;
+    }
+
+    .rapadutacho-figure figcaption p:nth-child(1) {
+      letter-spacing: .2em;
+    }
+
+    .rapadutacho-figure figcaption p:nth-child(2) {
+      letter-spacing: .4em;
+      font-size-adjust: .4;
+    }
+
+    .rapadutacho-figure figcaption p:nth-child(2) span {
+      letter-spacing: 0;
+    }
+
+    .rapadutacho-figure figcaption p:nth-child(2) sup {
+      letter-spacing: 0;
+      font-family: 'Abril Fatface', cursive;
+      font-style: normal;
+    }
+
+    .rapadutacho-figure figcaption p:last-child {
+      font-family: 'Abril Fatface', cursive;
+      letter-spacing: 0em;
+      font-size: .5em;
+    }
+
     @media all and (orientation: landscape) {
-      .rapadutacho-figure {
-        display: grid;
-      }
-
-      .rapadutacho-figure img {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 25%;
-      }
-
       .rapadutacho-figure figcaption {
         font-size: 6rem;
-        display: grid;
-      }
-
-      .rapadutacho-figure figcaption p {
-        font-family: 'Pangram black', sans-serif;
-      }
-
-      .rapadutacho-figure figcaption p:nth-child(1) {
-        letter-spacing: .2em;
-      }
-
-      .rapadutacho-figure figcaption p:nth-child(2) {
-        letter-spacing: .4em;
-        font-size-adjust: .4;
-      }
-
-      .rapadutacho-figure figcaption p:nth-child(2) span {
-        letter-spacing: 0;
-      }
-
-      .rapadutacho-figure figcaption p:nth-child(2) sup {
-        letter-spacing: 0;
-        font-family: 'Abril Fatface', cursive;
-        font-style: normal;
-      }
-
-      .rapadutacho-figure figcaption p:last-child {
-        font-family: 'Abril Fatface', cursive;
-        letter-spacing: 0em;
-        font-size: .5em;
       }
     }
 
     @media (max-width: 720px) and (orientation: portrait) {
-      .rapadutacho-figure {
-        display: grid;
-      }
-
-      .rapadutacho-figure img {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 25%;
-      }
-
       .rapadutacho-figure figcaption {
         font-size: 3rem;
-        display: grid;
-      }
-
-      .rapadutacho-figure figcaption p {
-        font-family: 'Pangram black', sans-serif;
-      }
-
-      .rapadutacho-figure figcaption p:nth-child(1) {
-        letter-spacing: .2em;
-      }
-
-      .rapadutacho-figure figcaption p:nth-child(2) {
-        letter-spacing: .4em;
-        font-size-adjust: .4;
-      }
-
-      .rapadutacho-figure figcaption p:nth-child(2) span {
-        letter-spacing: 0;
-      }
-
-      .rapadutacho-figure figcaption p:nth-child(2) sup {
-        letter-spacing: 0;
-        font-family: 'Abril Fatface', cursive;
-        font-style: normal;
-      }
-
-      .rapadutacho-figure figcaption p:last-child {
-        font-family: 'Abril Fatface', cursive;
-        letter-spacing: 0em;
-        font-size: .5em;
       }
     }
   </style>
@@ -126,8 +90,8 @@
 </head>
 
 <body>
-  <!-- <app style="font-family:'URW Chancery L', cursive; font-size: x-large">Loading...</app> -->
-  <div style="text-align: center;">
+  <app style="font-family:'URW Chancery L', cursive; font-size: x-large">Loading...</app>
+  <!-- <div style="display: grid">
 
     <figure class="rapadutacho-figure">
       <img src="rapadutacho.png" alt="logo rapadutacho">
@@ -137,12 +101,22 @@
         <p>sorveteria & confeitaria</p>
       </figcaption>
     </figure>
-  </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr">
+      <div>
+        <figure>
+          <figcaption>
 
-  <!-- <script type="systemjs-packagemap" src="app/packagemap.json"></script>
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div> -->
+
+  <script type="systemjs-packagemap" src="app/packagemap.json"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@2/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@2/dist/extras/amd.min.js"></script>
-  <script> window.onload = () => /*global System*/ System.import('boot') </script> -->
+  <script> window.onload = () => /*global System*/ System.import('boot') </script>
 
 </body>
 
