@@ -116,7 +116,7 @@ define(['vue', 'h-vue'], (Vue, { H }) => {
           {
             display: 'grid',
             'font-size': `${window.innerWidth < 721 ? '3' : '4' }rem`,
-            'padding-top': `${window.innerWidth < 721 ? '3' : '2' }rem`
+            'padding-top': `2rem`
           }
         }, 
         renderFigure(h), 
